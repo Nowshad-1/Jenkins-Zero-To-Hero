@@ -1,7 +1,5 @@
 1 Steps to be done on slave 2 ==
 
-now 43
-
 3 Login to slave machine..
 
 4 switch to root user
@@ -16,7 +14,7 @@ now 43
 
 9 Steps to be done on master machine:
 
-10
+10 ====================================
 
 11 Login to master machine
 
@@ -26,7 +24,7 @@ now 43
 
 14 cd /var/lib/jenkins/.ssh
 
-15 ssh-keyscan -H SLAVE-NODE-IP-OR-HOSTNAME >>/var/lib/jenkins/.ssh/known hosts
+15 ssh-keyscan -H (replace your SLAVE-NODE-IP-OR-HOSTNAME) >>/var/lib/jenkins/.ssh/known hosts
 
 16 # ssh-keyscan -H 172.31.38.42 >>/var/lib/jenkins/.ssh/known hosts
 
@@ -41,3 +39,21 @@ now 43
 21 # DOne !!
 
 22 Steps to be done on jenkins GUI:
+
+23 Go to manage jenkins
+
+24 open manage node
+
+25 under launch method select "Launch via SSh"
+
+26 Host "public ip of slave"
+
+27 creditals: select user with private key
+
+28 enter ec2-user as name and paste the pem key.
+
+29 host key verification startegy to be selected
+
+30 save..
+
+31 we are good with the master and slave configuration
