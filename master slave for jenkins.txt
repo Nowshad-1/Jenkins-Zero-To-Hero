@@ -1,0 +1,43 @@
+1 Steps to be done on slave 2 ==
+
+now 43
+
+3 Login to slave machine..
+
+4 switch to root user
+
+5 install jdk 11 (amazon-linux-extras install java-openjdk11)
+
+6 Create ssh-keygen
+
+7 cat id rsa.pub > authorized keys
+
+8 chmod 700 authorised keys
+
+9 Steps to be done on master machine:
+
+10
+
+11 Login to master machine
+
+12 switch to root user.
+
+13 mkdir -p /var/lib/jenkins/.ssh
+
+14 cd /var/lib/jenkins/.ssh
+
+15 ssh-keyscan -H SLAVE-NODE-IP-OR-HOSTNAME >>/var/lib/jenkins/.ssh/known hosts
+
+16 # ssh-keyscan -H 172.31.38.42 >>/var/lib/jenkins/.ssh/known hosts
+
+17 chown jenkins: jenkins known_hosts
+
+18 #we need to change the owner as we ran ssh-keyscan command using "root" user.
+
+19 # default user of Jenkins will be "jenkins"
+
+20 chmod 700 known hosts
+
+21 # DOne !!
+
+22 Steps to be done on jenkins GUI:
